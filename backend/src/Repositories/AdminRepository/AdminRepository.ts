@@ -13,7 +13,7 @@ export class AdminRepository implements IAdminRepository{
     }
 
     async save(admin: Admin): Promise<Admin> {
-        const [returnedAdmin] = await knex('users')
+        const [returnedAdmin] = await knex('admins')
             .insert(admin, ['id', 'name', 'email'])
 
         return returnedAdmin
