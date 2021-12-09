@@ -1,0 +1,21 @@
+import { Admin } from "../../Entities/Admin";
+import { IAdminRepository } from "./IAdminRepository";
+import knex from '../../database/connection'
+
+export class AdminRepository implements IAdminRepository{
+    async findByEmail(email: string): Promise<Admin> {
+        const admin = await knex('admins')
+            .select('*')
+            .where({ email })
+            .first()
+
+        return admin
+    }
+
+    async save(admin: Admin): Promise<Admin> {
+        const [returnedAdmin] = await knex('users')
+            .insert(admin, ['id', 'name', 'email'])
+
+        return returnedAdmin
+    }
+}
