@@ -10,6 +10,7 @@ export class ModuleRepository implements IModuleRepository{
             .count('classes.module_id as quantity_classes')
             .leftJoin('classes', 'classes.module_id', 'modules.id')
             .groupBy('modules.id')
+            .orderBy('modules.name')
 
         return modules
     }
