@@ -6,9 +6,11 @@ import { getAllModulesController } from './useCases/GetAllModules'
 import { getClassesByModulesController } from './useCases/GetClassesByModule'
 import { loginController } from './useCases/Login'
 
+import { isAdmin } from './middlewares/isAdmin'
+
 const router = Router()
 
-router.post('/signup', (req, res) => createAdminController.handle(req, res))
+router.post('/signup', isAdmin, (req, res) => createAdminController.handle(req, res))
 router.post('/login', (req, res) => loginController.handle(req, res))
 
 router.get('/modules', (req, res) => getAllModulesController.handle(req, res))
