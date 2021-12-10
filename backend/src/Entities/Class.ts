@@ -10,8 +10,6 @@ export class Class{
     constructor(props: Omit<Class, 'id'>, id?: string){
         Object.assign(this, props)
 
-        if(!id){
-            this.id = randomUUID()
-        }
+        this.id = id ? id : randomUUID()
     }
 }

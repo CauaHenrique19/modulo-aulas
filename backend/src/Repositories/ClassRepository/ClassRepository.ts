@@ -18,4 +18,12 @@ export class ClassRepository implements IClassRepository{
         
         return insertedClass
     }
+
+    async update(data: Class): Promise<Class> {
+        const [updatedClass] = await knex('classes')
+            .update(data, '*')
+            .where({ id: data.id })
+
+        return updatedClass
+    }
 }
