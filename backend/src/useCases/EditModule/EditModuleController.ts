@@ -12,7 +12,7 @@ export class EditModuleController{
             response.json(module)
         }
         catch(error){
-            return response.status(500).json({ message: 'Ocorreu um erro ao criar um módulo!', error: error.message })
+            return response.status(500).json({ message: 'Ocorreu um erro ao editar um módulo!', error: error.message })
         }
     }
 }
