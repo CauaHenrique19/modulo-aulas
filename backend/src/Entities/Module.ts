@@ -7,8 +7,6 @@ export class Module{
     constructor(props: Omit<Module, 'id'>, id?: string){
         Object.assign(this, props)
 
-        if(!id){
-            this.id = randomUUID()
-        }
+        this.id = id ? id : randomUUID()
     }
 }

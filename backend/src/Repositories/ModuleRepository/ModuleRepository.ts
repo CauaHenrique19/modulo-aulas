@@ -1,7 +1,7 @@
 import { Module } from "../../Entities/Module";
 import { IModuleRepository } from "./IModuleRepository";
-import knex from '../../database/connection'
 import { IGetAllModulesDTO } from "../../DTO/IGetAllModulesDTO";
+import knex from '../../database/connection'
 
 export class ModuleRepository implements IModuleRepository{
     async getAll(): Promise<IGetAllModulesDTO[]> {
@@ -25,11 +25,16 @@ export class ModuleRepository implements IModuleRepository{
     async update(module: Module): Promise<Module> {
         const [updatedModule] = await knex<Module>('modules')
             .update(module, '*')
-        
+            .where({ id: module.id })
+
         return updatedModule
     }
 
     async delete(id: string): Promise<void> {
+        await knex('classes')
+            .delete()
+            .where({ module_id: id })
+
         await knex('modules')
             .delete()
             .where({ id })
