@@ -10,4 +10,9 @@
     5 - Dentro da pasta backend, instale as dependências rodando o comando npm i
     6 - Para prevenção de erros futuros, instale o knex globalmente na sua máquina.
     7 - Para criação das tabelas no banco de dados execute o comando npm run migrate:latest
-    8 - Para a iniciar o servidor apenas execute npm start
+    8 - Para execução das seeds execute o comando npm run seeds
+    9 - Para a iniciar o servidor apenas execute npm start
+
+    Credenciais do usuário padrão
+        email: teste@teste.com
+        senha: 123
