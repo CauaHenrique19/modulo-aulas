@@ -1,8 +1,8 @@
 import { Class } from "../../Entities/Class";
-import { ClassRepository } from "../../Repositories/ClassRepository/ClassRepository";
+import { IClassRepository } from "../../Repositories/ClassRepository/IClassRepository";
 
 export class GetClassesByModulesUseCase{
-    constructor(private classRepository : ClassRepository){}
+    constructor(private classRepository : IClassRepository){}
 
     async execute(module_id: string) : Promise<Class[]>{
         if(!module_id) throw new Error('Informe o módulo!')

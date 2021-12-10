@@ -12,7 +12,7 @@ export class CreateAdminController{
             response.json(insertedAdmin)
         }
         catch(error){
-            response.status(400).json({ message: 'Ocorreu um erro ao criar admin!', error: error.message })
+            response.status(500).json({ message: 'Ocorreu um erro ao criar admin!', error: error.message })
         }
     }
 }
