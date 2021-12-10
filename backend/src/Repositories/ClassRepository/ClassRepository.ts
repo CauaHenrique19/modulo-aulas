@@ -26,4 +26,10 @@ export class ClassRepository implements IClassRepository{
 
         return updatedClass
     }
+
+    async delete(id: string): Promise<void> {
+        await knex('classes')
+            .delete()
+            .where({ id })
+    }
 }
