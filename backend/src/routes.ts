@@ -8,6 +8,7 @@ import { loginController } from './useCases/Login'
 import { editModuleController } from './useCases/EditModule'
 
 import { isAdmin } from './middlewares/isAdmin'
+import { deleteModuleController } from './useCases/DeleteModule'
 
 const router = Router()
 
@@ -17,6 +18,7 @@ router.post('/login', (req, res) => loginController.handle(req, res))
 router.get('/modules', (req, res) => getAllModulesController.handle(req, res))
 router.post('/modules',  isAdmin, (req, res) => createModuleController.handle(req, res))
 router.put('/modules', isAdmin, (req, res) => editModuleController.handle(req, res))
+router.delete('/modules/:id', isAdmin, (req, res) => deleteModuleController.handle(req, res))
 
 router.get('/classes/:module_id', (req, res) => getClassesByModulesController.handle(req, res))
 router.post('/classes', (req, res) => createClassController.handle(req, res))
