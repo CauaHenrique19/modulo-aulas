@@ -1,0 +1,116 @@
+.home-container{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--background-color);
+}
+.home-container .header-container{
+    height: 10vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0px 15%;
+    background-color: var(--primary-color);
+}
+.home-container .header-container button{
+    border: 1px solid var(--font-color);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+.home-container .header-container button:hover{
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+.home-container .modules-container,
+.home-container .selected-module{
+    padding: 2% 15% 0 15%;
+}
+.home-container .modules-container h1{
+    color: var(--secondary-font-color);
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+.home-container .modules-container .modules-content{
+    display: flex;
+}
+.home-container .modules-container .modules-content .module{
+    width: 25%;
+
+    display: flex;
+    align-items: center;
+
+    margin-right: 10px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    transition: border 0.1s;
+    cursor: pointer;
+}
+.home-container .modules-container .modules-content .module:last-child{
+    margin: 0;
+}
+.home-container .modules-container .modules-content .module:hover,
+.home-container .modules-container .modules-content .module.selected{
+    border: 3px solid var(--secondary-color);
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.192);
+}
+.home-container .modules-container .modules-content .module .icon-container{
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+    background-color: var(--background-color);
+    margin-right: 10px;
+}
+.home-container .modules-container .modules-content .module .icon-container ion-icon{
+    color: var(--secondary-font-color);
+    font-size: 1.5rem;
+}
+.home-container .modules-container .modules-content .module .module-info h2{
+    color: var(--secondary-color);
+    word-break: keep-all;
+    margin-bottom: 5px;
+}
+.home-container .modules-container .modules-content .module .module-info p{
+    font-weight: 500;
+}
+.home-container .selected-module{
+    display: flex;
+}
+.home-container .selected-module .icon-container{
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    margin-right: 10px;
+}
+.home-container .selected-module .icon-container ion-icon{
+    font-size: 1.8rem;
+}
+.home-container .selected-module .selected-module-container{
+    height: 75px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.home-container .selected-module .selected-module-container h1,
+.home-container .selected-module .selected-module-container p{
+    color: var(--secondary-font-color);
+}
+.home-container .selected-module .selected-module-container p{
+    font-size: 1.3rem;
+}
