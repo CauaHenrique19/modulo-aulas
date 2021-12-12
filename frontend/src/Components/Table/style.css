@@ -1,0 +1,37 @@
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table thead{
+    text-align: left;
+}
+.table thead th,
+.table tbody td{
+    height: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+    color: var(--secondary-font-color);
+}
+.table tr td button{
+    width: 70px;
+    height: 35px;
+
+    background-color: black;
+    margin-right: 10px;
+    border-radius: 5px;
+
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+.table tr td button.btn-edit{
+    background-color: var(--warning-color);
+}
+.table tr td button.btn-edit:hover{
+    background-color: var(--dark-warning-color);
+}
+.table tr td button.btn-delete{
+    background-color: var(--error-color);
+    margin-right: 0;
+}
+.table tr td button.btn-delete:hover{
+    background-color: var(--dark-error-color);
+}

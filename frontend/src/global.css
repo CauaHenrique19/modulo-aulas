@@ -10,6 +10,10 @@
     --dark-primary-color: #00385e;
     --secondary-color: #8DC6FF;
     --dark-secondary-color: #67a6e6;
+    --error-color: #ce1d1d;
+    --dark-error-color: #922626;
+    --warning-color: #ff7c17;
+    --dark-warning-color : #e06507;
     --background-color: #E8F1F5;
     --font-color: #FAFAFA;
     --secondary-font-color: #000;

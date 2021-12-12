@@ -1,7 +1,8 @@
 import { useState, useContext } from 'react'
 import { Context } from '../../Context/context'
 import { useNavigate } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import notify from '../../Utils/notify';
 import api from '../../Services/api'
 
 import './style.css'
@@ -15,19 +16,6 @@ const Login = () => {
     const [password, setPassword] = useState('')
 
     const navigate = useNavigate()
-
-    function notify(message){
-        toast.error(message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored"
-        });
-    }
 
     function handleLogin() {
         const user = {

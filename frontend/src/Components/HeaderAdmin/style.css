@@ -1,0 +1,39 @@
+.header-admin{
+    width: 100%;
+    height: 10vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0px 15%;
+    background-color: var(--primary-color);
+}
+.header-admin ul{
+    display: flex;
+}
+.header-admin ul li{
+    width: 100px;
+    height: 10vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    list-style-type: none;
+}
+.header-admin ul li a{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.3s;
+}
+.header-admin ul li a:hover,
+.header-admin ul li a.selected{
+    background-color: var(--secondary-color);
+    border-bottom: 5px solid var(--font-color);
+}
