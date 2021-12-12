@@ -78,7 +78,7 @@ const Home = () => {
                                 <p>DSADKOASKDOAKSDOAKSDOASKODKASODSAKDOASKDOASKDOAKSDOAKSDOKASODKASOKDSDSADKOASKDOAKSDOAKSDOASKODKASODS</p>
                                 <div className="date">
                                     <ion-icon name="calendar-outline"></ion-icon>
-                                    <p>{classByModule.date}</p>                                
+                                    <p>{new Date(classByModule.date).toLocaleString().replace(',', ' às ')}</p>                                
                                 </div>
                                 <a href={classByModule.url_video} target="_blank">Assistir aula</a>
                             </div>
