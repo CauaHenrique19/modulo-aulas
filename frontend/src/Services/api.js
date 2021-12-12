@@ -9,7 +9,8 @@ const api = axios.create({
 })
 
 api.interceptors.request.use((config) => {
-    config.headers['Authorization'] = 'Bearer kaosdkasokdoas'
+    const token = localStorage.getItem('modulo_aulas_token')
+    config.headers['Authorization'] = `Bearer ${token}`
     return config
 })
 
