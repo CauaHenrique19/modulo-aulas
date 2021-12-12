@@ -5,7 +5,10 @@ export async function up(knex: Knex): Promise<void> {
         table.string('id').primary().notNullable()
         table.string('name').notNullable()
         table.string('module_id').references('id').inTable('modules').notNullable()
+        table.text('description').notNullable()
         table.string('url_video').notNullable()
+        table.string('key_image').notNullable()
+        table.string('url_image').notNullable()
         table.timestamp('date').notNullable()
     })
 }

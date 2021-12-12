@@ -1,4 +1,6 @@
 import { Router } from 'express'
+import multer from 'multer'
+
 import { createAdminController } from './useCases/CreateAdmin'
 import { createClassController } from './useCases/CreateClass'
 import { createModuleController } from './useCases/CreateModule'
@@ -13,6 +15,7 @@ import { deleteClassController } from './useCases/DeleteClass'
 import { isAdmin } from './middlewares/isAdmin'
 
 const router = Router()
+const upload = multer()
 
 router.post('/signup', isAdmin, (req, res) => createAdminController.handle(req, res))
 router.post('/login', (req, res) => loginController.handle(req, res))
@@ -23,7 +26,7 @@ router.put('/modules', isAdmin, (req, res) => editModuleController.handle(req, r
 router.delete('/modules/:id', isAdmin, (req, res) => deleteModuleController.handle(req, res))
 
 router.get('/classes/:module_id', (req, res) => getClassesByModulesController.handle(req, res))
-router.post('/classes', isAdmin, (req, res) => createClassController.handle(req, res))
+router.post('/classes', upload.single('image'), isAdmin, (req, res) => createClassController.handle(req, res))
 router.put('/classes', isAdmin, (req, res) => editClassController.handle(req, res))
 router.delete('/classes/:id', isAdmin, (req, res) => deleteClassController.handle(req, res))
 
