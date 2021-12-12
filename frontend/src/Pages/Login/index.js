@@ -1,10 +1,11 @@
 import { useState, useContext } from 'react'
 import { Context } from '../../Context/context'
 import { useNavigate } from 'react-router-dom'
-
+import { ToastContainer, toast } from 'react-toastify';
 import api from '../../Services/api'
 
 import './style.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
@@ -15,10 +16,28 @@ const Login = () => {
 
     const navigate = useNavigate()
 
+    function notify(message){
+        toast.error(message, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored"
+        });
+    }
+
     function handleLogin() {
         const user = {
             email,
             password
+        }
+
+        if(email.length === 0 || password.length === 0){
+            notify('Email ou senha não informados')
+            return;
         }
 
         api.post('/login', user)
@@ -31,7 +50,7 @@ const Login = () => {
                     navigate('/admin/')
                 }
                 else {
-                    console.log(res.data)
+                    notify(res.data.error)
                 }
             })
             .catch(error => console.log(error))
@@ -40,7 +59,7 @@ const Login = () => {
     return (
         <div className="login-container">
             <div className="form-login">
-                <h1>Painel Administrtivo</h1>
+                <h1>Painel Administrativo</h1>
                 <div className="form-login-content">
                     <div className="input-container">
                         <label htmlFor="email">E-mail</label>
@@ -65,6 +84,7 @@ const Login = () => {
                     <button onClick={handleLogin}>Entrar</button>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }
