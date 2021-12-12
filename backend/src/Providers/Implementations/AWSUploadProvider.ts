@@ -1,5 +1,4 @@
 import { S3 } from "aws-sdk";
-import aws from "aws-sdk"
 import { FileUploader, IFile, IUpdateFile, IUploadedFile } from "../IFileUpload";
 import crypto from 'crypto'
 

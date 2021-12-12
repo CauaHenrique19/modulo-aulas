@@ -27,7 +27,7 @@ router.delete('/modules/:id', isAdmin, (req, res) => deleteModuleController.hand
 
 router.get('/classes/:module_id', (req, res) => getClassesByModulesController.handle(req, res))
 router.post('/classes', upload.single('image'), isAdmin, (req, res) => createClassController.handle(req, res))
-router.put('/classes', isAdmin, (req, res) => editClassController.handle(req, res))
+router.put('/classes', upload.single('image'), isAdmin, (req, res) => editClassController.handle(req, res))
 router.delete('/classes/:id', isAdmin, (req, res) => deleteClassController.handle(req, res))
 
 export { router }
