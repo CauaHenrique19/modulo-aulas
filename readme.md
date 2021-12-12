@@ -58,11 +58,15 @@
         - Necessita de autenticação: sim
         - rota: /modules/<id>
 
+    Get All Classes
+        - Método: GET
+        - rota: /classes
+
     Get Classes by Modules:
         - Método: GET
         - Informações necessárias: module_id
         - Necessita de autenticação: não
-        - rota: /classes/<module_id>
+        - rota: /classes-by-modules/<module_id>
 
     Create Class:
         - Método: POST

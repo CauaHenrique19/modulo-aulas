@@ -1,8 +1,17 @@
 import { Class } from "../../Entities/Class";
 import { IClassRepository } from "./IClassRepository";
+import { IGetAllClassesDTO } from "../../DTO/IGetAllClassesDTO";
 import knex from '../../database/connection'
 
 export class ClassRepository implements IClassRepository{
+    async getAll(): Promise<IGetAllClassesDTO[]> {
+        const classes = await knex('classes')
+            .select('classes.*', 'modules.name as module_name')
+            .innerJoin('modules', 'modules.id', 'classes.module_id')
+
+        return classes
+    }
+
     async getByModule(module_id: string): Promise<Class[]> {
         const classes = await knex('classes')
             .select('*')

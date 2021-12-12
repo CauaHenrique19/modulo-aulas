@@ -11,6 +11,7 @@ import { editModuleController } from './useCases/EditModule'
 import { deleteModuleController } from './useCases/DeleteModule'
 import { editClassController } from './useCases/EditClass'
 import { deleteClassController } from './useCases/DeleteClass'
+import { getAllClassesController } from './useCases/GetAllClasses'
 
 import { isAdmin } from './middlewares/isAdmin'
 
@@ -25,7 +26,8 @@ router.post('/modules',  isAdmin, (req, res) => createModuleController.handle(re
 router.put('/modules', isAdmin, (req, res) => editModuleController.handle(req, res))
 router.delete('/modules/:id', isAdmin, (req, res) => deleteModuleController.handle(req, res))
 
-router.get('/classes/:module_id', (req, res) => getClassesByModulesController.handle(req, res))
+router.get('/classes/', (req, res) => getAllClassesController.handle(req, res))
+router.get('/classes-by-modules/:module_id', (req, res) => getClassesByModulesController.handle(req, res))
 router.post('/classes', upload.single('image'), isAdmin, (req, res) => createClassController.handle(req, res))
 router.put('/classes', upload.single('image'), isAdmin, (req, res) => editClassController.handle(req, res))
 router.delete('/classes', isAdmin, (req, res) => deleteClassController.handle(req, res))
