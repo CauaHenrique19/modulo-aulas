@@ -65,6 +65,27 @@ const Home = () => {
                     </div>
                 </div>
             }
+            {
+                selectedModule.id &&
+                <div className="classes-container">
+                    {
+                        classesByModule &&
+                        classesByModule.length > 0 &&
+                        classesByModule.map(classByModule => (
+                            <div key={classByModule.id} className="class">
+                                <img src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9jdXN8ZW58MHx8MHx8&w=1000&q=80" alt="" />
+                                <h2>{classByModule.name}</h2>
+                                <p>DSADKOASKDOAKSDOAKSDOASKODKASODSAKDOASKDOASKDOAKSDOAKSDOKASODKASOKDSDSADKOASKDOAKSDOAKSDOASKODKASODS</p>
+                                <div className="date">
+                                    <ion-icon name="calendar-outline"></ion-icon>
+                                    <p>{classByModule.date}</p>                                
+                                </div>
+                                <a href={classByModule.url_video} target="_blank">Assistir aula</a>
+                            </div>
+                        ))
+                    }
+                </div>
+            }
         </div>
     )
 }

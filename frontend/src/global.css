@@ -8,6 +8,7 @@
 :root{
     --primary-color: #004A7C;
     --secondary-color: #8DC6FF;
+    --dark-secondary-color: #67a6e6;
     --background-color: #E8F1F5;
     --font-color: #FAFAFA;
     --secondary-font-color: #000;
@@ -17,4 +18,7 @@ button{
     border: none;
     cursor: pointer;
     outline: none;
+}
+a{
+    text-decoration: none;
 }
