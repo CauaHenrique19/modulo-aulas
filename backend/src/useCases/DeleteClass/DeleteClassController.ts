@@ -1,13 +1,14 @@
 import { Request, Response } from "express";
 import { DeleteClassUseCase } from "./DeleteClassUseCase";
+import { IDeleteClassDTO } from "./IDeleteClassDTO";
 
 export class DeleteClassController{
     constructor(private deleteClassUseCase : DeleteClassUseCase){}
 
     async handle(request: Request, response: Response){
         try{
-            const { id } = request.params
-            await this.deleteClassUseCase.execute(id)
+            const { id, key_image } : IDeleteClassDTO = request.body
+            await this.deleteClassUseCase.execute({ id, key_image })
             response.json({ message: 'Aula excluída com sucesso!' })
         }
         catch(error){

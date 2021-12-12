@@ -78,6 +78,6 @@
 
     Delete Class:
         - Método: DELETE
-        - Informações necessárias: id
+        - Informações necessárias: id, key_image
         - Necessita de autenticação: sim
-        - rota: /classes/<id>
+        - rota: /classes
