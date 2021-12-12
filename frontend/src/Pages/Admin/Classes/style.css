@@ -1,0 +1,44 @@
+.admin-classes-container{
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--background-color);
+}
+.admin-classes-container .admin-classes-content{
+    width: 70%;
+    height: 90vh;
+
+    padding: 2% 0;
+}
+.admin-classes-container .admin-classes-content .header-admin-modules{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.admin-classes-container .admin-classes-content .header-admin-modules h1{
+    color: var(--secondary-font-color);
+    font-size: 3rem;
+}
+.admin-classes-container .admin-classes-content .header-admin-modules button{
+    width: 170px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+    font-size: 1.2rem;
+    background-color: var(--primary-color);
+    transition: background-color 0.3s;
+}
+.admin-classes-container .admin-classes-content .header-admin-modules button ion-icon{
+    margin-right: 5px;
+}
+.admin-classes-container .admin-classes-content .header-admin-modules button:hover{
+    background-color: var(--dark-primary-color);
+}

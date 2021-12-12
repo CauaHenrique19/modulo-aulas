@@ -1,3 +1,4 @@
+import React from 'react'
 import './style.css'
 
 const Table = ({ columns, data, handleEdit, handleDelete }) => {
@@ -8,38 +9,51 @@ const Table = ({ columns, data, handleEdit, handleDelete }) => {
                 <tr>
                     {
                         columns.map((column, index) => (
-                            <th key={index}>{column}</th>
+                            <th key={index}>{column.label}</th>
                         ))
                     }
                 </tr>
             </thead>
             <tbody>
                 {
-                    data.map((data, index) => {
-                        const values = Object.values(data)
-                        return (
-                            <tr key={index}>
-                                {
-                                    values.map(field => (
-                                        <td key={`${field}:${index}`}>{field}</td>
-                                    ))
-                                }
-                                {
-                                    columns.includes('Ações') &&
-                                    <td>
+                    data.map((data, index) => (
+                        <tr key={index}>
+                            {
+                                columns.map(column => (
+                                    <React.Fragment key={`${column.name}:${index}`}>
                                         {
-                                            handleEdit &&
-                                            <button onClick={() => handleEdit(data)} className='btn-edit'>Editar</button>
+                                            column.name === 'actions' ?
+                                            <td>
+                                                {
+                                                    handleEdit &&
+                                                    <button onClick={() => handleEdit(data)} className='btn-edit'>Editar</button>
+                                                }
+                                                {
+                                                    handleDelete &&
+                                                    <button onClick={() => handleDelete(data)} className='btn-delete'>Excluir</button>
+                                                }
+                                            </td> :
+                                            column.name === 'url_image' ?
+                                            <td>
+                                                <img src={`${data[column.name]}?${Date.now()}`} alt={data[column.name]} />
+                                            </td> :
+                                            column.name === 'date' ?
+                                            <td>
+                                                {new Date(data[column.name]).toLocaleString().replace(',', ' às ')}
+                                            </td> :
+                                            <td>
+                                                {
+                                                    data[column.name].length <= 30 ?
+                                                    data[column.name] :
+                                                    data[column.name].substring(0, 30) + '...'
+                                                }
+                                            </td>
                                         }
-                                        {
-                                            handleDelete &&
-                                            <button onClick={() => handleDelete(data)} className='btn-delete'>Excluir</button>
-                                        }
-                                    </td>
-                                }
-                            </tr>
-                        )
-                    })
+                                    </React.Fragment>
+                                ))
+                            }
+                        </tr>
+                    ))
                 }
             </tbody>
         </table>
