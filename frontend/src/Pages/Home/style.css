@@ -12,14 +12,14 @@
     padding: 0px 15%;
     background-color: var(--primary-color);
 }
-.home-container .header-container button{
+.home-container .header-container a{
     border: 1px solid var(--font-color);
     padding: 10px;
     border-radius: 5px;
     font-size: 1rem;
     transition: background-color 0.3s;
 }
-.home-container .header-container button:hover{
+.home-container .header-container a:hover{
     background-color: var(--background-color);
     color: var(--primary-color);
 }

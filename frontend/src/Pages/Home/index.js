@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import api from '../../Services/api'
 
 import './style.css'
@@ -27,7 +28,7 @@ const Home = () => {
         <div className="home-container">
             <header className="header-container">
                 <h1>Módulos e Aulas</h1>
-                <button>Painel Administrativo</button>
+                <Link to="/login">Painel Administrativo</Link>
             </header>
             <div className="modules-container">
                 <h1>Módulos</h1>
