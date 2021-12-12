@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Context } from '../../Context/context'
+
 import api from '../../Services/api'
 
 import './style.css'
 
 const Home = () => {
+
+    const { token } = useContext(Context)
 
     const [modules, setModules] = useState([])
     const [selectedModule, setSelectedModule] = useState({})
@@ -19,7 +23,7 @@ const Home = () => {
 
     function handleSelectModule(module){
         setSelectedModule(module)
-        api.get(`/classes/${module.id}`)
+        api.get(`/classes-by-modules/${module.id}`)
             .then(res => setClassesByModule(res.data))
             .catch(error => console.log(error))
     }
@@ -28,7 +32,11 @@ const Home = () => {
         <div className="home-container">
             <header className="header-container">
                 <h1>Módulos e Aulas</h1>
-                <Link to="/login">Painel Administrativo</Link>
+                {
+                    token ?
+                    <Link to="/admin/modules">Painel Administrativo</Link> :
+                    <Link to="/login">Login</Link> 
+                }
             </header>
             <div className="modules-container">
                 <h1>Módulos</h1>

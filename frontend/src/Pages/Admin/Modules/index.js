@@ -123,7 +123,14 @@ const Modules = () => {
                     </button>
                 </div>
                 <Table 
-                    columns={['Id', 'Nome', 'Quantidade de aulas', 'Ações']} 
+                    columns={
+                        [
+                            { label: 'Id', name: 'id' },
+                            { label: 'Nome', name: 'name' },
+                            { label: 'Quantidade de aulas', name: 'quantity_classes' },
+                            { label: 'Ações', name: 'actions' }
+                        ]
+                    } 
                     data={modules}
                     handleEdit={
                         (module) => {

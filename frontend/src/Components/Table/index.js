@@ -43,7 +43,7 @@ const Table = ({ columns, data, handleEdit, handleDelete }) => {
                                             </td> :
                                             <td>
                                                 {
-                                                    data[column.name].length <= 30 ?
+                                                    data[column.name].toString().length <= 30 ?
                                                     data[column.name] :
                                                     data[column.name].substring(0, 30) + '...'
                                                 }
