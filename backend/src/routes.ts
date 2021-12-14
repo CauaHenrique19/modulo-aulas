@@ -14,6 +14,7 @@ import { deleteClassController } from './useCases/DeleteClass'
 import { getAllClassesController } from './useCases/GetAllClasses'
 
 import { isAdmin } from './middlewares/isAdmin'
+import { getAllAdminsController } from './useCases/GetAllAdmins'
 
 const router = Router()
 const upload = multer()
@@ -31,5 +32,7 @@ router.get('/classes-by-modules/:module_id', (req, res) => getClassesByModulesCo
 router.post('/classes', upload.single('image'), isAdmin, (req, res) => createClassController.handle(req, res))
 router.put('/classes', upload.single('image'), isAdmin, (req, res) => editClassController.handle(req, res))
 router.delete('/classes', isAdmin, (req, res) => deleteClassController.handle(req, res))
+
+router.get('/admins', isAdmin, (req, res) => getAllAdminsController.handle(req, res))
 
 export { router }

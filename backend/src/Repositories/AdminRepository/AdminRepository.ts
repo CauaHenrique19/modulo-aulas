@@ -3,6 +3,13 @@ import { IAdminRepository } from "./IAdminRepository";
 import knex from '../../database/connection'
 
 export class AdminRepository implements IAdminRepository{
+    async getAll(): Promise<Admin[]> {
+        const admins = await knex('admins')
+            .select('id', 'name', 'email')
+
+        return admins
+    }
+
     async findByEmail(email: string): Promise<Admin> {
         const admin = await knex('admins')
             .select('*')
