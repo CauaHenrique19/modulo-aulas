@@ -12,9 +12,10 @@ import { deleteModuleController } from './useCases/DeleteModule'
 import { editClassController } from './useCases/EditClass'
 import { deleteClassController } from './useCases/DeleteClass'
 import { getAllClassesController } from './useCases/GetAllClasses'
+import { getAllAdminsController } from './useCases/GetAllAdmins'
+import { deleteAdminController } from './useCases/DeleteAdmin'
 
 import { isAdmin } from './middlewares/isAdmin'
-import { getAllAdminsController } from './useCases/GetAllAdmins'
 
 const router = Router()
 const upload = multer()
@@ -34,5 +35,6 @@ router.put('/classes', upload.single('image'), isAdmin, (req, res) => editClassC
 router.delete('/classes', isAdmin, (req, res) => deleteClassController.handle(req, res))
 
 router.get('/admins', isAdmin, (req, res) => getAllAdminsController.handle(req, res))
+router.delete('/admins', isAdmin, (req, res) => deleteAdminController.handle(req, res))
 
 export { router }

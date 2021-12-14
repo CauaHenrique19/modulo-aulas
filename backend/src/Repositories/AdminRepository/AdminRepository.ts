@@ -25,4 +25,10 @@ export class AdminRepository implements IAdminRepository{
 
         return returnedAdmin
     }
+
+    async delete(id: string): Promise<void> {
+        await knex('admins')
+            .delete()
+            .where({ id })
+    }
 }
