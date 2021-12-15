@@ -35,7 +35,7 @@ const Login = () => {
                     localStorage.setItem('modulo_aulas_user', JSON.stringify(res.data.admin))
                     setUser(res.data.admin)
                     setToken(res.data.token)
-                    navigate('/admin/')
+                    navigate('/admin/modules')
                 }
                 else {
                     notify(res.data.error)
