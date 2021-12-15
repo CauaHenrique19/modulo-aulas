@@ -10,7 +10,7 @@ const HeaderAdmin = ({ page }) => {
                 <li><Link to="/">Home</Link></li>
                 <li><Link className={page === 'modules' ? 'selected' : undefined} to="/admin/modules">Módulos</Link></li>
                 <li><Link className={page === 'classes' ? 'selected' : undefined} to="/admin/classes">Aulas</Link></li>
-                <li><Link className={page === 'users' ? 'selected' : undefined} to="/admin/users">Usuários</Link></li>
+                <li><Link className={page === 'admins' ? 'selected' : undefined} to="/admin/admins">Usuários</Link></li>
             </ul>
         </header>
     )
