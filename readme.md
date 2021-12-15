@@ -2,6 +2,7 @@
     Considerações Iniciais:
         - Foi utilizado o NodeJs na versão 16.7.0 e o npm na versão 7.21.0.
         - PostgreSQL na versão 12.2.
+        - Esse servidor trabalha com upload de arquivos, esses arquivos estão armazenados em um bucket na aws.
 
     1 - Renomeie o arquivo .env.example para .env.
     2 - Crie o banco de dados no postgres e informe-o no arquivo .env no campo DATABASE.
@@ -33,7 +34,18 @@
         - Método: POST
         - Informações necessárias: email, name, password e confirmPassword
         - Necessita de autenticação: sim
-        rota: /signup
+        - rota: /signup
+
+    Get All Admins
+        - Método: GET
+        - Necessita de autenticação: sim
+        - rota: /admins
+
+    Delete Admin
+        - Método: DELETE
+        - Informações necessárias: id
+        - Necessita de autenticação: sim
+        - rota: /admins
 
     Get All Modules:
         - Método: GET
@@ -54,7 +66,6 @@
 
     Delete Module:
         - Método: DELETE
-        - Informações necessárias: id
         - Necessita de autenticação: sim
         - rota: /modules/<id>
 
@@ -64,24 +75,30 @@
 
     Get Classes by Modules:
         - Método: GET
-        - Informações necessárias: module_id
         - Necessita de autenticação: não
         - rota: /classes-by-modules/<module_id>
 
     Create Class:
         - Método: POST
-        - Informações necessárias: name, module_id, url_video, date
+        - Informações necessárias: name, module_id, url_video, date, description, image
         - Necessita de autenticação: sim
         - rota: /classes
+        - Formato Body: FormData
 
     Edit Class:
         - Método: PUT
-        - Informações necessárias: id, name, module_id, url_video, date
+        - Informações necessárias: id, name, module_id, url_video, date, description, image (opcional), url_image, key_image
         - Necessita de autenticação: sim
         - rota: /classes
+        - Formato Body: FormData
 
     Delete Class:
         - Método: DELETE
         - Informações necessárias: id, key_image
         - Necessita de autenticação: sim
         - rota: /classes
+
+## Passos para rodar o Frontend
+
+    1 - Instale as dependências com <npm i>
+    2 - Execute o comando npm start para iniciar o servidor
